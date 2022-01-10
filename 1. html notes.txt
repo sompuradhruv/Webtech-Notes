@@ -1,0 +1,154 @@
+basic html syntax:
+
+<html>
+<head>
+<title>
+Web page title(wont be displayed on webpage but will be the actual name in the browser tab)
+</tittle>
+</head>
+<h1>some big looking text</h1>
+<h3>slightly smalller than h2 text</h3>
+<body>body of webpage
+<h2>slightly smaller than h1</h2>
+<p>paragraph</p>
+</body>
+</html>
+-------------------------------------
+break lines:
+
+<br/> se sidha next line chale jayega (no space between lines agar space chaiye to use paragraphs or 2 <br/><br/>)
+-------------------------------------
+unordered lists:
+
+<h1>best singers</h1>
+<ul>
+<li>post malone</li>
+<li>tnt</li>
+</ul> 
+(these will have bullet points)
+
+ordered list is <ol> istead of <ul>
+----------------------------------------
+image insertion:
+
+absolute link(upload from your system):
+<img src= "imagename.extension" alt="describe the image" width="300"/>
+
+**alt="" is used to help tell the search engine what the image is about to help your page get higher rank
+**width="300" means image width will be displayed in 300 pixels
+
+eg.
+<img src="C:\Users\Dhruv\Pictures\background images\spiritedaway.jpg" alt"movie photo" width="200"/>
+
+relative link(upload image url from the net):
+you can also have a image url from a website directly
+
+eg.
+<img src="abcxyz.com/image/kitten.jpg alt="cat"/>
+-----------------------------------------
+hyperlink:
+
+absolute link:(another website)
+<a href="www.google.com" target="_blank">Click Here</a>
+
+**"_blank" opens the website in a new tab instead of opening it in the same tab and replacing your webpage
+
+from email instead of website:
+<a href="mailto: dhruv@gmail.com">click here</a>
+
+relative link:(from your system)
+<a href="filename.pdf" target="_blank">Click Here</a>
+
+**if file is in some folder put folder/filename etc. but if the html file and the pdf file(or image file in case of img src) are in the same folders or directory then you only have to mention the filename.extention
+------------------------------------------------
+table:
+
+<table width="500" border="1">
+<tbody>
+
+<tr>
+<td>Name</td>
+<td>Dhruv</td>
+</tr>
+
+<tr>
+<td>Roll No</td>
+<td>35</td>
+</tr>
+
+</tbody>
+</table>
+
+output:
+Name  |Dhruv
+Rollno|35
+
+**border="1" is border thickness=1
+**tr ke under u fill information for that particular row
+**td me table data is put
+------------------------------------------
+form:
+
+<form>form content</form>
+
+text field:
+<form>
+<input type="text">
+</form>
+
+text area:
+<form>
+<text area>
+Add message here
+<text area>
+</form>
+
+**input type is used for one field input
+**text area is used if you want a large input(larger dialog box)
+
+check box:
+(multiple correct)
+<form>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label><br>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> I have a car</label><br>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label><br>
+</form>
+
+output:
+[]i have a bike44
+[]i have a car
+[]i have a boat
+
+radio box:
+(only 1 option correct)
+<input type="radio" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> I have a bike</label><br>
+<input type="radio" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> I have a car</label><br>
+<input type="radio" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label><br>
+
+date:
+<input type="date">
+
+**(adds a dialog box to add date along with a drop down calender)
+
+submit button:
+<input type="submit">
+
+**adds a submit button
+---------------------------------------------------------------
+comments:
+
+<!-- comment here -->
+-----------------------------------------
+meta tag:
+
+<meta name="hello" content="ye website hai">
+
+**meta tag is a description of your webpage
+**body ke bahar ka information is never seen on the webpage
+------------------------------------------

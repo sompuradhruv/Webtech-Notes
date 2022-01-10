@@ -1,0 +1,229 @@
+internal styles:
+
+<html>
+<head>
+<title>hello</title>
+<style>
+.sampleclass{
+font-family:Times New Roman;
+font-size: 18pt;
+color: cadetblue;
+}
+</style>
+</head>
+<body>
+<p class="sampleclass">Kese ho ji</p>
+<p>trial text</p>
+</body>
+</html>
+
+1. create class in style section
+2. use it by adding it to the <> of the section u want
+--------------------------------------------
+external styles:
+
+used to create all the classes to apply to the html file
+
+how to do:
+1. create a seperate css file with the extention .css
+2. link the html doctument to css document by:
+<head>
+<liink REL="STYLESHEET" TYPE="text/css" HREF="[Style sheet URL]">
+</head>
+
+eg.
+<link REL="STYLESHEET" TYPE="text/css" HREF="doc.css">
+
+now for style sheet(doc.css ke undr ka code):
+
+eg.
+html file:
+<html>
+<head>
+<title>hello</title>
+</head>
+<body>
+<p class="sampleclass">Kese ho ji</p>
+<p>trial text</p>
+</body>
+</html>
+
+css file:
+.sampleclass{
+font-family:Times New Roman;
+font-size: 18pt;
+color: cadetblue;
+}
+
+**external is just like internal bus farak itna hai ke alag files me hota hai
+-----------------------------------------
+inline styles:
+
+<p styles="color: red">abcxyz</p>
+
+**heirarchy order:
+inline
+internal
+external
+
+ie
+if external class ka naam is same as internal class then internal class is preffered 
+and inline style is given more prefrence than internal style
+----------------------------------------
+box model:
+
+<style>
+.sampleText{
+width:400px;
+border:solid 2px #000;
+padding:10px;
+margin:100px;
+}
+
+**this puts the text inside a box
+**padding is the distance or whitespace in box between the border and text 
+**margin is whitespace or distance within the window itself
+**#000 is black color for border
+--------------------------------------------
+div tag:
+
+its a holder for example you want to apply a style to 3 out of 4 paragraphs then enclose the 3 paraghaps within the div tag and add the class to div tag instead of adding it to all the paragraphs seperately
+
+eg.
+<div class="sampleclass">
+<p>
+</p>
+<p>
+</p>
+</div> 
+------------------------------------------
+background image:
+
+(within style section:)
+.bgimage{
+background: url("www.image.com"); //or url("sky.jpg")
+}
+-------------------------------------------
+some styles:
+
+background-color:red //for background color
+font-weight:100; //font thickness
+font-style: italic //for italic or oblique or normal
+line:-height: 24pt; //lines ke beech ka space
+letter-spacing:2pt; //letter space
+border: solid/dotted/etc;
+border-top or padding-top or margin-top or -left or -right or -bottom for doing it at one side only
+---------------------------------------
+styling tags:
+
+for styling tags:
+(just write the tag)
+
+a{
+font-family:impact
+color:yellow
+}
+
+**a is for hyperlinks
+**now all hyperlinks will have this style
+**no need to add class for this anywhere all hyperlink tags will become link this automatically
+
+a:hover{
+text-decoration: underline;
+}
+
+**what happens here is that when you hover over the hyperlink it's styling changes completely based on a:hover class
+----------------------------------------
+id styling:
+
+its used only once and used to give structural view to the page
+
+(within style)
+#topArea{
+background-color=black;
+}
+
+(within div)
+<div id="topArea"></div>
+(here is rest all the main body
+
+output:
+upr ek black color ka bar ayega
+niche sab body rahega
+
+difference b/w id and class:
+id used only once for one element, class used for multiple elements
+--------------------------------------
+float:
+
+used to arrange the paragraphs
+
+eg.
+.classs{
+float:left;
+margin-right:20 px;
+}
+
+(within body)
+<p class="classs">1.some big text</p>
+<p class="classs">2.some big text</p>
+
+output:
+1.some             2.some
+  big                big
+  text               text
+
+**space in between is the margin
+**imagine a box around 1 and 2 wale text boxes
+
+now if you add another paragraph even without the class it will aling just like the other two
+to avoid this use
+<div class="clear">3.text</div>
+
+now 3.text will come below the other 2 paragraphs
+-----------------------------------------
+span:
+
+(in style)
+.classs{something}
+.classs span{something different}
+
+(on body)
+<div class="classs">abc xyz <span> oooo </span></div>
+
+**span only works if the text enclosed within span is overall enclosed within div
+
+tags used along with span:
+
+display:
+
+.classs span{
+display:block;
+}
+.class2 span{
+display: inline;
+}
+
+block se the text inside becomes seperate as if it were in a block(niche aa jayega as a paragraphs
+and inline se it come in line with others
+-------------------------------------------
+positioning:
+
+.pos{
+position: relative;
+top: 100px;
+left: 50%;
+margin-left:-220px;
+}
+
+eg.
+<img src="image.jpg" class="pos"/>
+
+**absolute hoga to baki sab data on page pe wont care and will cut other parts out
+
+Relative - the element is positioned relative to its normal position. 
+Absolute - the element is positioned absolutely to its first positioned parent. 
+Fixed - the element is positioned related to the browser window. 
+Sticky - the element is positioned based on the user's scroll position.
+---------------------------------------
+

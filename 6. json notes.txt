@@ -1,0 +1,163 @@
+json:
+
+save as .php
+------------------------------------------------------
+where to write?
+
+in p.php file:
+<html><script>object etc json content</script><html>
+-------------------------------------------------------
+object creation:
+
+var jobject={
+        "name":"dhruv",
+        "lastname":"sompura",
+        "age":24,
+        "profession":"webdev"
+    }
+---------------------------------------
+display objects:
+
+document.write(jobject)
+//[object Object]
+
+document.write(jobject.name);
+//dhruv
+------------------------------------------
+to show all data:
+
+for(showalldata in jobject){
+document.write(showalldata+"<br>");
+}
+//name lastname age profession
+
+to show data values:
+
+for(showalldata in jobject){
+document.write(jobject[showalldata]+"<br>");
+}
+//dhruv sompura 24 webdev
+-------------------------------------------------------
+changing values:
+
+jobject.name="kunal";
+--------------------------------
+creating new values:
+
+jobject.middlename="mohit";
+--------------------------------
+delete:
+
+delete jobject.middlename;
+------------------------------------
+array:
+
+var newobj={
+"arr":["kunal","mohit"]
+}
+document.write(newobj.arr+"<br>");
+//kunal,mohit
+-------------------------------------
+creating array of objects:
+
+var obj={
+"employee":
+[
+{
+"name:"dhruv",
+"lastname":"sompura",
+}
+{
+"name":"kunal",
+"roll":"13"
+}
+]
+}
+document.write(obj.employee[0].name);
+//dhruv
+
+printing all values:
+
+for(x in obj.employee)
+{
+for(ix in obj.employee[x])
+{
+document.write(obj.employee[x][ix]);
+}
+}
+//dhruv sompura kunal 13
+----------------------------------------
+multiple objects in one variable:
+
+var variable={
+"emp":{blah blah},
+"dhruv":{blah blah}
+}
+---------------------------------------------
+searching objects in json file using jquery
+
+<form>
+<input type="text" id="txt-search">
+<form>
+
+<script>
+$('#txt-search').keyup(function(){
+var searchField = $(this).val();
+if(searchField === '')  {
+$('#filter-records').html('');
+return;}
+var regex = new RegExp(searchField, "i");
+var output = '<div class="row">';
+var count = 1;
+$.each(data, function(key, val){
+if ((val.employee_salary.search(regex) != -1) || (val.employee_name.search(regex) != -1)) {
+output += '<div class="col-md-6 well">';
+output += '<div class="col-md-3"><img class="img-responsive" src="'+val.profile_image+'" alt="'+ val.employee_name +'" /></div>';
+output += '<div class="col-md-7">';
+output += '<h5>' + val.employee_name + '</h5>';
+output += '<p>' + val.employee_salary + '</p>'
+output += '</div>';
+output += '</div>';
+if(count%2 == 0){
+output += '</div><div class="row">'
+}
+count++;
+}
+});
+output += '</div>';
+$('#filter-records').html(output);
+});
+<script>
+
+json file:
+
+var data = [  
+   {  
+      "id":"1",
+      "employee_name":"Tiger Nixon",
+      "employee_salary":"320800",
+      "employee_age":"61",
+      "profile_image":"default_profile.png"
+   },
+   {  
+      "id":"2",
+      "employee_name":"Garrett Winters",
+      "employee_salary":"434343",
+      "employee_age":"63",
+      "profile_image":"default_profile.png"
+   },
+   {  
+      "id":"3",
+      "employee_name":"Ashton Cox",
+      "employee_salary":"86000",
+      "employee_age":"66",
+      "profile_image":"default_profile.png"
+   },
+   {  
+      "id":"4",
+      "employee_name":"Cedric Kelly",
+      "employee_salary":"433060",
+      "employee_age":"22",
+      "profile_image":"default_profile.png"
+   }
+];

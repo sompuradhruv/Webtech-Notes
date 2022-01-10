@@ -1,0 +1,92 @@
+syntax:
+
+$(selector).action()
+
+eg.$("p").hide()
+----------------------------
+normal jquery code:
+
+<body>
+  <button id="button">Click</button>
+  <script>
+    $("button").click(function(){
+      alert("trial");
+    });
+  </script>
+</body>
+------------------------------------------
+hiding text on button press:
+
+<div id="mydiv">
+        GeeksforGeeks !.
+    </div>
+    <button class="b1">Click me !</button>
+    <script>
+      $(document).ready(function() {
+          $(".b1").click(function() {
+              $("#mydiv").hide();
+          });
+      });
+  </script>
+----------------------------------------------
+div ids written with "#divname"
+classes with ".classname"
+normal tags with "p" or "button or "div" this encloses every single button/paragraph/div and performs the same function for all
+----------------------------------------------------------------------------------------------------------------------------------------------
+animate karne ke liye: toggle(1000);
+//1 sec tak hide hoga giving a good shrinking animated effect. toggle is hide and show both alternatively hoga
+------------------------------------------------------------------------------------------------------------------
+events:
+like click,dbclick,ready,submit,blur,scroll,unload,load,etc
+-----------------------------------------------------------------
+append:
+
+add text after list on button click:
+
+$(document).ready(function() {
+          $(".b1").click(function() {
+            $("ol").append("<li>Appended text</li>");
+          });
+        });
+
+prepend:adds text in the start of list
+
+they also work in normal para tags as normal text messages
+--------------------------------------------------------
+other html functions: remove()
+to add or remove css: addclass('classname') or removeclass('classname')
+--------------------------------------------------------------------------
+form validation:
+
+<head><script src="jquery-3.6.0.min.js"></script></head>
+<body>
+    <form>
+        Username:<input type="text" id="name"><span id="sname"></span><br><br>
+        Email Id:<input type="text" id="email"><span id="semail"></span><br><br>
+        <input type=submit id="submitbtn">
+    </form>
+    <script>
+          $('#submitbtn').click(function () {
+              userv=$('#name').val();
+              if(userv.length=='')
+              {
+                  $('#sname').html('name cant be empty');
+              }
+              email=$('#email').val();
+              atpos=email.indexOf("@");
+              dtpos=email.indexOf(".");
+              if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length)
+                {
+                    $('#semail').html('enter valid email');
+                }
+              return false;
+          });
+    </script>
+</body>
+-------------------------------------------------------------------------------------
+blending/positioning characters based on coordinates:
+
+<script>
+$( "p" ).last().offset({ top: 10, left: 30 });
+</script>
+top is y axis and left is x axis

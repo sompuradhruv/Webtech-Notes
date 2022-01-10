@@ -1,0 +1,227 @@
+JavaScript:
+
+linking js file:
+
+<head>
+<script src='myscript.js'></script>
+</head>
+---------------------------------------------------------
+creating variable:
+
+var c=5;
+c=c*c;
+
+var a=10;
+var b="10";
+var c= a==b; //not equal to is !=
+var d= a===b;
+document.write(c); //true
+document.write(d); //false as it also checks data type
+---------------------------------------------------------
+alert:
+//popup on screen
+
+eg. alert(c); //or alert("Hello");
+---------------------------------------------
+print something on screen like normal html:
+
+document.write("hello"); //print hello on screen like in normal html
+------------------------------------
+function:
+
+function getval(t,y)
+{
+return t*y;
+}
+var val=getval(10,5);
+alert(val); //50 in popup
+---------------------------------
+arrays:
+
+var arr=new Array;
+arrays [0]="abc";
+arrays[1]="xyz";
+
+or
+
+var arr2=["abc","xyz"]
+
+array functions:
+
+concat:
+var final=arr1.concat(arr2);
+
+sort: 
+arr.sort;(ascending order)
+
+arr.push(5);
+arr.pop;
+------------------------------------
+string:
+
+var str="abcxyz";
+
+string methods:
+
+str.lenght;
+
+str.charAt(2);
+
+str.indexOf('c');
+
+str.localeCompare("cxy") //ans 1 if cxy present in abcxyz or -1 if false
+------------------------------------------------------------------------------
+Events:
+
+1. onclick:
+
+<button onclick="function_name()">Clcik</button>
+//button clcik karne se function call hoga
+//ye statement body me hoga normal but function script tags ke undr hoga
+
+2. eval:
+
+<form name="formname">
+<input type="text" name="userkainput">
+<input type="button" onclick="cal()">
+<input type="text" name="calculatedanswer">
+</form>
+<script>
+function cal()
+{
+document.formname.calculatedanswer.value=eval(document.formname.userkainput.value)
+}
+</script>
+
+//input = 4+4
+//on clicking button: 8 appears in the next text field
+
+3. window.location
+
+use onclick and write this inside a function:
+window.location="https://blabla";
+
+//if used with onclick it basically takes you to a new page on clciking a button
+---------------------------------------------------------------------------------------------
+Dialog boxes:(other than alert)
+
+1. confirm
+
+<input type="button" onclick="confirmation()" value="click me"></input>
+//input type="button" se button banega
+//onclick="confirmation" se click karne pe function revoke hoga
+//value="click me" se button pe click me likh ke ayega
+
+<script>
+function confirmation()
+{
+var ans=confirm("confirm that you clicked the button");
+//alert ayega with the above message and a yes and no option
+if(ans)
+//agar yes dabaya
+{
+window.location="https://www.google.co.in";
+//redirected to google
+}
+else
+//agar o dabaya
+{
+alert("you dont want to go to google");
+//naya alert saying this. no redirect to google
+}
+}
+</script>
+
+2. prompt
+
+<input type="button" onclick="pp()" value="click me"></input>
+
+<script>
+function pp()
+{
+var str=prompt("ENter your name");
+//alert ayega with the above message and a text field to enter name which is saved in str
+alert("welcome "+str+" to the page");
+}
+</script>
+---------------------------------------------------------------------------------
+Math objects:
+
+1. var a=Math.round(1.5), Math.floor(1.5), Math.min(10,11,12), etc;
+
+2. Date:
+
+var dt=Date();
+document.write(dt.getDay());
+
+//other examples:
+//.getHours(), .getMonth, .getTime(), etc
+---------------------------------------------------------------------------
+Form Validation:
+
+<form name="myform" onsubmit="return validation()">
+Username:<input type:"text" value="" id="user"><span id="username"></span><br>
+Password:<input type:"text" value="" id="pass"><span id="password"></span><br>
+//value null as user dalega
+//value display hota hai screen pe
+<input type="submit" value="Submit">
+</form>
+
+<script>
+function validation()
+{
+var un=document.getElementById("user").value;
+var ps=document.getElementById("pass").value;
+if(un=="")
+//username empty
+{
+document.getElementById("username").innerHTML="Please enter user name";
+return false;
+}
+if(ps=="")
+{
+document.getElementById("password").innerHTML="Please enter password";
+return false;
+}
+else
+{
+alert("done");
+}
+}
+</script>
+-----------------------------------------------------------------------------
+document.getElementById("valuename").innerHTML;
+
+using this get all element with certain value
+(useful later in form validation)
+
+inside body:
+<p id='value1'>text123</p>
+
+inside script tag:
+var xyz=document.getElementById('value1').innerHTML;
+alert(xyz);
+------------------------------------------------------
+Changing text on screen:
+
+<body><h1 id=val>Hi</h1>
+<script>
+function gv(id,text)
+{
+document.getElementById(id).innerHTML=text; //replaces Hi with uuuui
+}
+gv('val','uuuui'); //passes uuuui to function
+</script></body>
+
+output:
+uuuui
+-----------------------------------------------------------------------
+changing value to something else on a click of button:
+
+<body id="value1">hi</body>
+<input type='submit' value='Submit'>
+<button onclick="document.getElementById('value1').innerHTML=Date(); return false;">Update</button>
+
+on clicking update hi changes to date
+//return false is to prevent from submitting
+----------------------------------------------------------------------------------------------------------

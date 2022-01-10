@@ -1,0 +1,121 @@
+angular js:
+
+<div ng-app>
+10+20={{10+20}}
+</div>
+
+//prints: 10+20=30
+------------------------------------
+<div ng-app>
+{{ {name: 'Dav',age:'10'}.name }}
+</div>
+
+//prints Dav
+---------------------------------------
+array:
+
+<div ng-app>
+{{ ['Dav','Pam', 'sarah'][2] }}
+</div>
+
+//prints sarah
+---------------------------------------
+creating modules:
+
+var myApp=angular.module("myModue",[]);
+----------------------------------------
+Controller:
+
+var myController=function($scope)
+{
+$scope.message="AngularJS Tutorial";
+}
+//function created and saved in variable
+------------------------------------------
+registering controller to module:
+
+1st method:(create module and controller first)
+myApp.controller("myController", myController);
+//modulename.controller("newnameofcontroller",controller_to_be_passed_name);
+
+2nd method:(no need to create anything)
+angular.module("myModue",[]).controller("myController",function($scope){
+$scope.message="AngularJS Tutorial";
+});
+------------------------------------------------------------------------------
+how to use module:
+
+<html ng-app="myModule">
+//blah blah
+<div ng-controller="myController">
+{{message}}
+</div></html>
+//prints AngularJS Tutorial
+----------------------------------------
+ng-app: starts angular js(eg. <div ng-app> or <html ng-app>, etc)
+ng-model: takes input(eg. <input type="text" ng-model="Name">)
+ng-bind: prints output(eg. Hello <span ng-bind="Name"></span>)
+ng-init: initialises variables(eg. ng-init="Name= 'John'">
+ng-repeat: loops
+
+other way to print output:
+Hello {{Name}}
+
+Angular forms:
+
+ng-click: action when button is clicked
+ng-show: show or hide elements
+ng-switch: switch case
+ng- options: dropdown list
+-----------------------------------------------------------------------
+program to change color of text box:
+
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<body>
+<p>Change the value of the input field:</p>
+<div ng-app="" ng-init="myCol='lightblue'">
+<input style="background-color:{{myCol}}" ng-model="myCol">
+</div>
+</body></html>
+
+//pehle text box ka color is light blue
+//and it changes to whatever color u write inside the box
+// in the line <input style="background-color:{{myCol}}" ng-model="myCol"> it sets the color of text box as lightblue and takes input color in the text box and saves it inside variable myCol
+------------------------------------------------------------------------------------------------------
+Creating module:
+
+<div ng-app="myApp">...</div>
+<script>var app = angular.module("myApp", []); </script>
+----------------------------------------------------------------------
+<form>
+<input type="checkbox" ng-model="myVar">Check to show a header 
+//basically when checkbox is checked myVar becomes equal to "true"
+</form>
+<h1 ng-show="myVar">My Header</h1>
+//if myvars=true it displays myheader
+--------------------------------------------------------------------------
+form validation manual:
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var app = angular.module('ngpatternApp', []);
+app.controller('ngpatternCtrl', function ($scope) {
+$scope.sendForm = function () {
+$scope.msg = "Form Validated";
+};});
+</script>
+</head>
+<body>
+<div ng-app="ngpatternApp" ng-controller="ngpatternCtrl">
+<h3>AngularJs ng-pattern Email Validation Example</h3>
+<form name="personForm" novalidate ng-submit="personForm.$valid &&sendForm()">
+Email:<input type="text" name="email" ng-model="txtmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required />
+<span style="color:Red" ng-show="personForm.email.$error.required"> Required! </span>
+<span style="color:Red" ng-show="personForm.email.$dirty&&personForm.email.$error.pattern">Please Enter Valid Email</span><br /><br />
+<button type="submit">Submit Form</button><br /><br />
+<span>{{msg}}</span>
+</form>
+</div>
+</body>
